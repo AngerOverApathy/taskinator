@@ -5,8 +5,15 @@ let taskFormHandler = function(event) {
     event.preventDefault()
     let taskTypeInput = document.querySelector("select[name='task-type']").value
     let taskNameInput = document.querySelector('input[name="task-name"]').value
+    
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
 
-    let taskDataObj = {
+    formEl.reset();
+    
+      let taskDataObj = {
         name: taskNameInput,
         type: taskTypeInput
     }
